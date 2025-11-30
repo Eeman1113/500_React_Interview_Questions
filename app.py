@@ -7,8 +7,8 @@ import os
 # CONFIGURATION & STYLING
 # -----------------------------------------------------------------------------
 st.set_page_config(
-    page_title="React Master | 550 Questions",
-    page_icon="⚛️",
+    page_title="React Prep | 550 Questions",
+    page_icon="❌",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -123,7 +123,7 @@ df = load_data()
 # SIDEBAR
 # -----------------------------------------------------------------------------
 with st.sidebar:
-    st.title("⚛️ React Master")
+    st.title(" React Prep ")
     st.markdown("Your ultimate interview prep companion.")
     
     st.write("---")
