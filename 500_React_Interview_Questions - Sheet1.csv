@@ -1,0 +1,551 @@
+ID,Category,Question,Answer
+1,Basics,What is React.js?,"A JavaScript library developed by Facebook for building user interfaces, specifically for single-page applications."
+2,Basics,What are the key features of React?,"Virtual DOM, Server-Side Rendering (SSR), Unidirectional Data Flow, and Reusable/Composable Components."
+3,Basics,What is JSX?,JSX (JavaScript XML) is a syntax extension for JavaScript that allows you to write HTML-like code inside JavaScript files.
+4,Basics,Can browsers read JSX?,No. Browsers can only read JavaScript objects. JSX must be transpiled (usually by Babel) into standard JavaScript.
+5,Basics,What is the Virtual DOM?,It is a lightweight copy of the real DOM. React uses it to compare changes (diffing) and update only the changed parts of the real DOM (reconciliation).
+6,Basics,What is the difference between Real DOM and Virtual DOM?,The Real DOM is slow to update directly; the Virtual DOM is faster because it updates in memory and only syncs changes to the Real DOM.
+7,Components,What are the two main types of components in React?,Class Components (stateful/legacy) and Functional Components (stateless/modern).
+8,Components,What is a Pure Component?,A component that renders the same output for the same state and props. It handles shouldComponentUpdate automatically by shallow comparison.
+9,Data,What is state in React?,"An internal data structure (object) that allows components to create and manage their own data, which can change over time."
+10,Data,What are props?,Short for properties. They are read-only inputs passed from a parent component to a child component.
+11,Data,What is the difference between State and Props?,State is managed within the component (mutable); Props are passed to the component (immutable).
+12,Data,"What is ""Prop Drilling""?",The process of passing data from a parent to a deeply nested child component through intermediate components that don't need the data.
+13,Hooks,What are React Hooks?,Functions introduced in React 16.8 that allow you to use state and lifecycle features in functional components.
+14,Hooks,What is useState?,A hook that lets you add React state to function components.
+15,Hooks,What is useEffect?,"A hook that lets you perform side effects (data fetching, subscriptions, manual DOM changes) in function components."
+16,Hooks,What does the dependency array [] in useEffect do?,"If empty [], the effect runs only once (like componentDidMount). If values are inside, it runs when those values change."
+17,Hooks,What is useContext?,"A hook that accepts a context object and returns the current context value, used to avoid prop drilling."
+18,Hooks,What is useReducer?,"A hook used for complex state logic (similar to Redux), where the next state depends on the previous one."
+19,Hooks,What is useMemo?,A hook that memoizes a value. It only re-computes the value when one of the dependencies has changed.
+20,Hooks,What is useCallback?,A hook that memoizes a function instance to prevent it from being recreated on every render.
+21,Hooks,What is useRef?,A hook that creates a mutable object which persists across renders. It is often used to access DOM elements directly.
+22,Lifecycle,What are the three phases of a React component lifecycle?,"Mounting, Updating, and Unmounting."
+23,Lifecycle,What is componentDidMount?,A lifecycle method (Class component) called immediately after a component is mounted. Good for API calls.
+24,Lifecycle,What is componentWillUnmount?,A lifecycle method called immediately before a component is destroyed. Used for cleanup (removing listeners/timers).
+25,Forms,What are Controlled Components?,Components where form data is handled by the React component's state.
+26,Forms,What are Uncontrolled Components?,Components where form data is handled by the DOM itself (using refs).
+27,Core,"What is the significance of ""keys"" in lists?","Keys help React identify which items have changed, added, or removed. They must be stable and unique among siblings."
+28,Core,Why should you not use Index as a key?,"If the list order changes (sorting/filtering), using index can cause performance issues and incorrect component state."
+29,Advanced,What are Higher-Order Components (HOC)?,"A function that takes a component and returns a new component (e.g., connect in Redux or withRouter)."
+30,Advanced,What is React Context?,A way to pass data through the component tree without having to pass props down manually at every level.
+31,Advanced,What are React Portals?,"A way to render children into a DOM node that exists outside the DOM hierarchy of the parent component (e.g., Modals)."
+32,Advanced,What are Error Boundaries?,Components that catch JavaScript errors anywhere in their child component tree and display a fallback UI.
+33,Advanced,"What is ""lifting state up""?",Moving state to a common ancestor so that multiple child components can share and sync that data.
+34,Redux,What is Redux?,"A predictable state container for JavaScript apps, often used with React for managing global state."
+35,Redux,What are the three core principles of Redux?,"Single source of truth, State is read-only, Changes are made with pure functions (reducers)."
+36,Redux,What is an Action in Redux?,"A plain JavaScript object describing ""what happened"" (has a type property)."
+37,Redux,What is a Reducer in Redux?,"A pure function that takes the previous state and an action, and returns the new state."
+38,Router,What is React Router?,"A standard library for routing in React, enabling navigation between views without refreshing the page."
+39,Router,What is the difference between <Link> and <a> tag?,<a> triggers a full page refresh; <Link> updates the URL and renders components without reloading the page.
+40,Performance,What is Lazy Loading in React?,"A technique to load components only when they are needed (using React.lazy and Suspense), reducing initial bundle size."
+41,Performance,What is Code Splitting?,Splitting the code into various bundles which can then be loaded on demand or in parallel.
+42,Performance,What is React.memo?,A higher-order component that wraps a functional component to prevent re-renders if props have not changed.
+43,Testing,What is Jest?,A JavaScript testing framework widely used with React for unit and integration testing.
+44,Testing,What is React Testing Library?,A library for testing React components that encourages testing behavior (what the user sees) rather than implementation details.
+45,Styling,What are Styled Components?,A library for CSS-in-JS that allows you to write actual CSS code to style your components.
+46,Advanced,What is Fiber?,"The new reconciliation engine in React 16, capable of pausing and prioritizing work (rendering)."
+47,Advanced,What is Hydration?,The process where React attaches event listeners to the HTML rendered by the server (SSR) to make it interactive.
+48,Security,How does React handle XSS (Cross-Site Scripting)?,"React escapes all values embedded in JSX by default before rendering them, preventing injection attacks."
+49,Components,What are Fragments?,A pattern (<></> or <React.Fragment>) to group a list of children without adding extra nodes to the DOM.
+50,Hooks,What are the Rules of Hooks?,1. Only call Hooks at the top level (not inside loops or conditions). 2. Only call Hooks from React functions.
+51,Hooks,What is a Custom Hook?,"A JavaScript function whose name starts with ""use"" and calls other Hooks. It allows you to extract and reuse component logic."
+52,Hooks,What is useLayoutEffect?,"Similar to useEffect, but it fires synchronously after all DOM mutations. Use it for reading layout from the DOM and synchronously re-rendering."
+53,Hooks,Difference between useEffect and useLayoutEffect?,useEffect runs asynchronously after the render is painted to the screen. useLayoutEffect runs synchronously before the browser paints (blocking visual updates).
+54,Hooks,What is forwardRef?,A method that lets a component expose a DOM node to its parent component by forwarding a ref.
+55,Hooks,What is useImperativeHandle?,A hook that customizes the instance value that is exposed to parent components when using ref. Used with forwardRef.
+56,Patterns,"What is the ""Render Props"" pattern?","A technique for sharing code between components using a prop whose value is a function (e.g., <DataProvider render={data => <h1>{data}</h1>} />)."
+57,Patterns,What is the Container vs. Presentational Component pattern?,"Separation of concerns: Container handles logic/state/fetching, while Presentational handles the UI/rendering (stateless)."
+58,Core,What are Synthetic Events?,React's cross-browser wrapper around the browser's native event. It ensures events behave consistently across different browsers.
+59,Core,What is React.StrictMode?,A tool for highlighting potential problems in an application. It activates additional checks and warnings for its descendants (only in development).
+60,Core,Why is setState asynchronous?,To optimize performance. React batches multiple state updates into a single re-render to avoid unnecessary layout calculations.
+61,State,"What is ""State Batching""?",The process where React groups multiple state updates into a single re-render for better performance.
+62,State,What is Automatic Batching (React 18)?,"React 18 batches state updates even inside promises, setTimeout, and native event handlers (previously only inside React event handlers)."
+63,Redux,What is Redux Middleware?,"Code that sits between the dispatched action and the reducer. Used for logging, crash reporting, or async tasks (e.g., Redux Thunk)."
+64,Redux,What is Redux Thunk?,"A middleware that allows you to write action creators that return a function instead of an action object, enabling async logic (API calls)."
+65,Redux,What is the connect() function?,A High-Order Component in react-redux that connects a React component to the Redux store.
+66,Redux,What is mapStateToProps?,A function used with connect() to select the part of the data from the store that the connected component needs.
+67,Redux,What is mapDispatchToProps?,"A function used with connect() to dispatch actions to the store, making them available as props to the component."
+68,Redux,What is Redux Toolkit (RTK)?,"The official, recommended way to write Redux logic. It simplifies store setup and reduces boilerplate code (includes Thunk/Immer by default)."
+69,Router,What is useNavigate?,A hook in React Router v6 used to programmatically navigate/redirect to different routes (replaces useHistory).
+70,Router,What is the <Outlet> component?,A placeholder component in React Router v6 that renders the child route's element in a layout component.
+71,Router,How do you access URL parameters?,"Using the useParams hook. For a route like /user/:id, const { id } = useParams() retrieves the ID."
+72,Styling,What are CSS Modules?,"A CSS file where all class names and animation names are scoped locally by default, avoiding class name collisions."
+73,Types,What is PropTypes?,A runtime type-checking feature for React props. (Note: TypeScript is now preferred over PropTypes in modern development).
+74,Forms,Difference between value and defaultValue?,value makes an input controlled (fixed state). defaultValue sets the initial value for an uncontrolled input.
+75,Performance,What is Tree Shaking?,A form of dead code elimination used by bundlers (like Webpack) to remove unused code from the final bundle.
+76,React 18,What is Concurrent React?,A new mechanism in React 18 that allows React to prepare multiple versions of the UI at the same time (rendering is interruptible).
+77,React 18,What is useTransition?,"A hook that lets you mark a state update as a ""transition"" (low priority), allowing the UI to remain responsive during heavy updates."
+78,React 18,What is useDeferredValue?,A hook that lets you defer re-rendering a non-urgent part of the tree. Similar to debouncing but integrated with React's rendering cycle.
+79,React 18,What is useId?,"A hook for generating unique IDs that are stable across the server and client, useful for accessibility attributes (ARIA)."
+80,React 18,What is Suspense?,"A feature that lets components ""wait"" for something (like data fetching) before rendering, showing a fallback (spinner) in the meantime."
+81,SSR,What is Server-Side Rendering (SSR)?,"Rendering React components into HTML on the server and sending the HTML to the client, improving SEO and initial load time."
+82,SSR,What is Next.js?,"A React framework that enables features like SSR, Static Site Generation (SSG), and automatic routing."
+83,SSR,What is Static Site Generation (SSG)?,Generating HTML pages at build time rather than request time. Extremely fast but data can be stale.
+84,SSR,What is Incremental Static Regeneration (ISR)?,"A Next.js feature that allows you to update static pages after you’ve built your site, without rebuilding the entire site."
+85,Testing,What is Shallow Rendering?,Testing a component one level deep (rendering it without rendering its child components).
+86,Testing,What is act() in testing?,"A helper that ensures all updates related to interactions, rendering, and data fetching are processed and applied to the DOM before assertions run."
+87,Testing,What is Snapshot Testing?,Saving the rendered output of a component to a file and comparing it against future runs to detect unexpected UI changes.
+88,Security,What is dangerouslySetInnerHTML?,React's replacement for innerHTML. It warns you that setting HTML from code is risky (XSS attacks) and should be used with caution.
+89,Hooks,Can you use Hooks inside loops or conditions?,No. Hooks must always be called in the exact same order on every render. This allows React to track state correctly.
+90,Core,What is the children prop?,A special prop that passes elements/components defined between the opening and closing tags of a component.
+91,Core,What is the purpose of super(props)?,"In class components, it calls the parent class constructor (React.Component) and binds this.props so it can be used in the constructor."
+92,Hooks,What is useDebugValue?,A hook used in custom hooks to display a label/value in React DevTools for debugging purposes.
+93,Ecosystem,What is JSX transpilation?,The process (usually done by Babel) of converting JSX syntax into React.createElement() function calls that browsers can understand.
+94,Styles,What is the difference between Global CSS and CSS-in-JS?,Global CSS applies to the whole app (risking conflicts). CSS-in-JS scopes styles to the component level (encapsulation).
+95,Architecture,What is Unidirectional Data Flow?,Data flows one way: Parent → Child. Children cannot push data back up directly; they must use callbacks passed down by the parent.
+96,Optimization,How do you prevent a function from re-creating on every render?,Use useCallback to memoize the function instance.
+97,Optimization,How do you prevent a heavy calculation from running on every render?,Use useMemo to cache the result.
+98,Environment,What is process.env?,A global variable injected by Node.js/Bundlers to access environment variables (like API keys) during build or runtime.
+99,Core,"What happens if you modify state directly (e.g., this.state.count = 2)?","React won't know the state changed, so it won't re-render the component, and the UI will be out of sync. Always use setState or state updaters."
+100,Advanced,What is Inversion of Control (IoC) in React?,"A design principle where you pass control of the UI to the consumer (e.g., using Render Props or Compound Components) rather than hardcoding logic."
+101,TypeScript,Why use TypeScript with React?,"It provides static typing, reducing runtime errors, improving code quality, and offering better IDE autocompletion and refactoring tools."
+102,TypeScript,How do you type useState?,"Explicitly define the type in generics: `const [user, setUser] = useState<User"
+103,TypeScript,How do you type event handlers?,"Use React's event types, e.g., React.ChangeEvent<HTMLInputElement> for inputs or React.FormEvent for form submission."
+104,TypeScript,What is the React.FC type?,"Short for ""Function Component"". It implicitly included children (in older versions) and provides type checking for default props. Note: Modern React prefers explicitly typing props instead of using FC."
+105,TypeScript,How do you type useRef for a DOM element?,const inputRef = useRef<HTMLInputElement>(null);. The initial value is usually null.
+106,TypeScript,"What is a ""Generic Component""?","A component that can accept props of various types, defined using TypeScript generics (e.g., a List component that can render a list of strings OR numbers)."
+107,TypeScript,How do you type the children prop explicitly?,"Use React.ReactNode for the most broad type (accepts JSX, strings, numbers, null, etc.)."
+108,Patterns,"What is the ""Compound Components"" pattern?","A pattern where multiple components work together to share state and logic (e.g., <Select>, <Select.Option>), usually using Context API internally."
+109,Patterns,"What is the ""State Reducer"" pattern?",A pattern that allows users to invert control over state updates by passing a custom reducer to a hook or component.
+110,Patterns,"What is the ""Prop Getters"" pattern?",A technique where a hook returns functions (like getInputProps) that you spread onto elements to handle accessibility and events automatically.
+111,Optimization,What is Virtualization (or Windowing)?,"Rendering only the items in a large list that are currently visible in the viewport (using libraries like react-window), improving performance."
+112,Optimization,"What is ""Debouncing"" in React?","Delaying a function call (like a search API request) until the user has stopped typing for a specific duration, preventing excessive re-renders/calls."
+113,Optimization,"What is ""Throttling""?","Limiting the number of times a function can be called over a certain time period (e.g., handling scroll events)."
+114,Tools,What is the React Profiler?,A developer tool used to measure the rendering performance of a React application (identifying which components render and how long they take).
+115,Core,What is Reconciliation?,The algorithm React uses to diff one tree with another to determine which parts need to be replaced.
+116,Core,"How does React handle ""Key"" collisions?","If keys are not unique among siblings, React cannot correctly track elements, leading to state bugs and inefficient updates."
+117,Data,"What is ""Optimistic UI""?","Updating the UI immediately as if an action succeeded (before the server responds), then rolling back if it fails."
+118,Data,What is React Query (TanStack Query)?,"A powerful library for fetching, caching, synchronizing, and updating server state in React applications (replaces basic useEffect fetching)."
+119,Data,"What is ""Stale-While-Revalidate""?",A caching strategy where the browser serves stale data from the cache while simultaneously fetching fresh data in the background.
+120,Data,What is an AbortController?,"A standard web API used to cancel pending network requests (e.g., cancelling a fetch call if the component unmounts)."
+121,Router,What are Nested Routes?,"Defining routes inside other routes (children), allowing the UI to render a persistent parent layout while swapping child content."
+122,Router,"What is a ""Loader"" in React Router v6.4+?","A function that runs before a route renders to fetch data, ensuring data is ready when the component mounts (eliminating ""fetch-then-render"" waterfalls)."
+123,Router,What is useSearchParams?,"A hook to read and modify the query string (e.g., ?filter=red&sort=asc) in the URL."
+124,Router,What is useLocation?,"A hook that returns the current location object, containing information about the current URL (pathname, search, hash, state)."
+125,Debugging,"What causes the ""Too many re-renders"" error?","Usually an infinite loop where a state update triggers a render, which immediately triggers the same state update again (e.g., calling setState directly inside the render body)."
+126,Debugging,"What is a ""Memory Leak"" warning in React?",It happens when a component unmounts but still has active subscriptions or async tasks (like setTimeout or fetch) trying to update the state of the unmounted component.
+127,Debugging,Why does useEffect run twice in development?,"In React.StrictMode, effects run twice (mount -> unmount -> mount) to help developers spot side effects that aren't properly cleaned up."
+128,Architecture,What are Micro-Frontends?,"An architectural style where a web app is composed of independent, loosely coupled features (often built by different teams/technologies) integrated into a single page."
+129,Architecture,What is Atomic Design?,"A methodology for creating design systems by breaking components into Atoms, Molecules, Organisms, Templates, and Pages."
+130,Architecture,React vs. Angular (Conceptual)?,"React is a library (flexible, unopinionated, requires external libraries for routing/state). Angular is a full framework (opinionated, batteries-included)."
+131,Ecosystem,What is Prettier?,An opinionated code formatter that enforces a consistent style across your React project.
+132,Ecosystem,What is ESLint?,A linter tool that identifies and reports on patterns found in ECMAScript/JavaScript code (helps find syntax errors and enforce best practices).
+133,State,What is Recoil?,"A state management library for React developed by Facebook, using ""atoms"" and ""selectors"" for fine-grained updates."
+134,State,What is Zustand?,"A small, fast, and scalable bearbones state-management solution using simplified flux principles (very popular alternative to Redux)."
+135,Hooks,Can useEffect be async?,"No. You cannot pass an async function directly to useEffect because it returns a Promise, not a cleanup function. You must define the async function inside the effect."
+136,Core,What are defaultProps?,A property on component classes to set default values for props. (Deprecated/discouraged in functional components in favor of default parameters).
+137,Patterns,"What is a ""Recursive Component""?",A component that calls itself inside its own JSX. Useful for rendering nested data structures like file trees or comments.
+138,Styling,"What is ""PostCSS""?","A tool for transforming CSS with JavaScript (e.g., adding vendor prefixes automatically)."
+139,Styling,What is Tailwind CSS?,A utility-first CSS framework often used with React to style components directly in the className prop without writing custom CSS files.
+140,Advanced,What is the Shadow DOM?,"A web standard that offers component style and markup encapsulation. React typically uses the Light DOM, but can render into Shadow DOM."
+141,Core,What is the key prop used for in Lists?,"It identifies which items have changed, are added, or are removed."
+142,Testing,"What is ""Mocking"" in tests?",Replacing complex or external dependencies (like API calls) with simulated versions to isolate the component being tested.
+143,Testing,What is fireEvent vs userEvent?,"fireEvent (React Testing Library) dispatches exact DOM events. userEvent simulates full user interactions (e.g., typing triggers focus, keydown, input, keyup) and is preferred."
+144,Forms,What is Formik?,"A popular library for building forms in React that handles validation, error messages, and form submission state."
+145,Forms,What is React Hook Form?,"A performant library for flexible and extensible forms with easy-to-use validation, minimizing re-renders."
+146,Performance,What is FCP (First Contentful Paint)?,A metric measuring the time from when the page starts loading to when any part of the page's content is rendered on screen.
+147,Performance,What is LCP (Largest Contentful Paint)?,A metric measuring the render time of the largest image or text block visible within the viewport (a key Core Web Vital).
+148,Core,How do you reset a component's state?,You can change the component's key prop. React will treat it as a distinct component and recreate it from scratch.
+149,Hooks,What is the difference between useMemo and React.memo?,useMemo caches a value/result inside a functional component. React.memo caches the rendered component itself to prevent re-renders if props don't change.
+150,Misc,Is React a library or a framework?,"Technically a library. It focuses only on the View layer. You need other libraries for routing, state management, etc., to build a full framework experience."
+151,A11y,How do you use aria-* attributes in JSX?,"They are written exactly as in HTML (hyphenated), e.g., aria-label, aria-required. Unlike other props, they do not use camelCase."
+152,A11y,Why use htmlFor instead of for in labels?,for is a reserved keyword in JavaScript (for loops). React uses htmlFor to align with the DOM API property className and htmlFor.
+153,A11y,How do Fragments aid Accessibility?,"They allow grouping elements without adding extra <div> nodes to the DOM, which can break accessibility trees (e.g., in tables or lists)."
+154,Patterns,Composition vs. Inheritance?,React strongly prefers Composition (combining small components) over Inheritance. You almost never use standard OOP class inheritance to extend component functionality.
+155,Patterns,What is React.cloneElement?,"A top-level API that clones a valid React element and returns a new one, allowing you to modify/add props to children dynamically."
+156,Hooks,When to use useReducer over useState?,"Use useReducer when state logic is complex, involves multiple sub-values, or when the next state depends on the previous one in a complicated way."
+157,Hooks,Why do objects in the useEffect dependency array cause infinite loops?,"Objects are compared by reference, not value. A new object created in the render body is a ""different"" object every time, triggering the effect repeatedly."
+158,React 18,What is flushSync?,"A function that forces React to flush updates synchronously (immediately), bypassing the automatic batching optimization."
+159,Core,What is Event Delegation in React?,React attaches one event listener to the root of the document (or app container in React 17+) rather than attaching listeners to every specific DOM node.
+160,Core,Why must Keys be unique only among siblings?,React's diffing algorithm only compares nodes within the same parent array. Keys don't need to be globally unique across the whole app.
+161,Security,How can href links be a security risk?,"href=""javascript:code..."" can execute malicious scripts. You should validate user-provided URLs to ensure they start with http or https."
+162,Security,"What is ""JSX Injection""?","It is unlikely because React escapes values, but it can happen if you incorrectly use dangerouslySetInnerHTML or improper server-side rendering sanitization."
+163,Tools,What is Vite?,A modern build tool that is significantly faster than Webpack (used in CRA). It uses native ES Modules for dev server and Rollup for production builds.
+164,Tools,Why migrate from Create-React-App (CRA) to Vite?,"CRA is slower, heavier, and effectively unmaintained. Vite offers near-instant start times, faster HMR (Hot Module Replacement), and better performance."
+165,Testing,What is renderHook?,A utility in React Testing Library allowing you to test a custom hook in isolation (creating a test component to run it).
+166,Styling,What is the main downside of CSS-in-JS?,"It adds runtime overhead (generating classes on the fly) and increases bundle size, which can affect performance in very large apps."
+167,Advanced,What is React.Children.map?,"A utility to iterate over props.children safely, handling cases where children might be an array, a single object, or undefined."
+168,State,How do you persist state on page reload?,Typically by saving the state to localStorage or sessionStorage inside a useEffect and reading it during initialization.
+169,Redux,What is reselect?,"A library for creating memoized ""selector"" functions. It prevents Redux from recalculating derived data if the input state hasn't changed."
+170,Router,How do you implement Protected Routes?,"Create a wrapper component that checks for authentication (e.g., token). If authorized, render the Outlet or child; if not, return <Navigate to=""/login"" />."
+171,Router,What is the <Navigate> component?,"A component that, when rendered, changes the current location (redirects). Useful for declarative redirects in JSX."
+172,Forms,How do you handle file inputs in React?,File inputs are always uncontrolled because their value is read-only. You use a ref or an onChange handler to access e.target.files.
+173,Forms,Handling multiple inputs with one handler?,"Use the name attribute: handleChange = (e) => setData({ ...data, [e.target.name]: e.target.value });."
+174,Hooks,"How to fix ""Flickering"" UI on load?","If the flicker is caused by data loading, use a Skeleton loader. If it's caused by style calculations, move the logic to useLayoutEffect."
+175,Core,What is the difference between <React.Fragment> and <>?,"<> is the short syntax. It does not support attributes (like key), whereas <React.Fragment key={...}> does."
+176,Core,What is displayName?,"A string property on components used for debugging messages. Usually inferred, but can be set explicitly for Higher-Order Components."
+177,Performance,What is the restriction of React.lazy?,It only supports components exported as default exports. Named exports must be re-exported as default to work.
+178,Ecosystem,What is Storybook?,"A tool for building UI components and pages in isolation. It simplifies documentation, testing, and showcasing components outside the main app."
+179,API,Axios vs Fetch?,"fetch is native. axios is a library that adds features like auto-JSON parsing, request interceptors, and better error handling (rejects on 4xx/5xx)."
+180,Architecture,Feature-based vs Type-based folder structure?,"Type-based groups by file type (components, hooks). Feature-based groups by domain (e.g., ""User"", ""Cart""), which is generally more scalable for large apps."
+181,Advanced,What are limitations of Error Boundaries?,"They do not catch errors in: Event handlers, Asynchronous code (setTimeout), Server-side rendering, or errors in the Boundary itself."
+182,Advanced,What is getDerivedStateFromError?,A static lifecycle method used in Error Boundaries to render a fallback UI after an error is thrown.
+183,Advanced,What is componentDidCatch?,"A lifecycle method in Error Boundaries used to log error information (e.g., to an error reporting service like Sentry)."
+184,Architecture,What is React Fiber?,The rewrite of React's core algorithm (v16). It allows rendering to be split into chunks (units of work) and prioritized/paused.
+185,Server Components,What are React Server Components (RSC)?,Components that run exclusively on the server. They have zero bundle size impact on the client and can access the database directly.
+186,Server Components,Difference between RSC and SSR?,"SSR renders HTML on the server for the initial load. RSC keeps components on the server forever, sending only the calculated output to the client as needed."
+187,Concurrency,"What is ""Tearing""?",A visual inconsistency where the UI shows two different states of the same data simultaneously (prevented by React 18's concurrent features).
+188,Hooks,Can you force a component to re-render?,"Yes, but it's discouraged. You can use a dummy state update (e.g., useState({})) or useReducer(x => x + 1, 0)."
+189,Patterns,"What is ""Prop Drilling"" vs ""Context""?","Prop drilling passes data explicitly through every layer. Context ""teleports"" data to the component that needs it, bypassing intermediates."
+190,Optimization,How do you optimize a large Context Provider?,"Split the context into separate contexts (e.g., UserContext and ThemeContext) so updates to one don't re-render consumers of the other."
+191,Ecosystem,"What is ""Create React App"" (CRA)?",The formerly standard tool to bootstrap React apps. It is now largely considered deprecated in favor of Vite or frameworks like Next.js.
+192,Core,What is react-dom?,The package that serves as the entry point to the DOM and server renderers. It separates React (logic) from the DOM (rendering target).
+193,Core,What is react-scripts?,"The set of scripts and configuration used by Create React App (handling Webpack, Babel, ESLint configuration hidden from the user)."
+194,Testing,What is the difference between Unit and Integration tests in React?,"Unit: Tests individual components/functions in isolation. Integration: Tests how multiple components work together (e.g., Parent + Child + Context)."
+195,Core,Why is class used in CSS but className in React?,class is a reserved keyword in JS (for creating classes). React uses className to avoid syntax errors.
+196,Advanced,"What is a ""Memory Leak"" in useEffect?",When you subscribe to something (like a WebSocket or Timer) but forget to unsubscribe/clear it in the return function of useEffect.
+197,Security,"What is ""Clickjacking""?",An attack where a user is tricked into clicking something different from what they see. React apps can use X-Frame-Options headers to prevent being embedded in iframes.
+198,Styles,"What is ""Critical CSS""?","The minimum CSS required to render the initial visible content of the page (Above the Fold), inlined to improve load performance."
+199,Core,What is the key prop behavior in Arrays?,"If an index is used as a key and the array is reordered, React may reuse the DOM element for the wrong data item, causing UI glitches."
+200,Advanced,Can React work without JSX?,"Yes. You can write components using React.createElement('div', { className: 'foo' }, 'Hello'), but it is verbose and hard to maintain."
+201,Advanced,"What is the ""Provider Pattern""?","A pattern used by Context API and Redux where a top-level component holds data and passes it to all children via a value prop, avoiding prop drilling."
+202,Advanced,"What is ""Prop Types"" vs ""TypeScript""?",PropTypes checks types at runtime (development only). TypeScript checks types at compile time. TypeScript is generally preferred today.
+203,Hooks,What is the useCallback dependency hazard?,"If you miss a dependency in the array, the function will use stale values (closures) from the render cycle where it was defined, leading to bugs."
+204,Hooks,Can useEffect return a Promise?,No. It must return undefined or a cleanup function. You cannot declare the effect function itself as async.
+205,Architecture,What is the difference between a Library and a Framework?,"React is a library (you choose the router, styling, etc.). Angular/Next.js are frameworks (structure and tools are enforced/provided)."
+206,Core,"What is ""declarative"" programming in React?","You describe what the UI should look like for a given state (e.g., <h1>{name}</h1>), and React handles how to update the DOM to match it."
+207,Core,"What is ""imperative"" programming?","Manually giving step-by-step instructions to change the UI (e.g., document.getElementById('demo').innerText = 'Hello'). React avoids this."
+208,Events,What is the difference between onClick and addEventListener?,"onClick is a React synthetic event (cross-browser, pooled). addEventListener attaches a native DOM listener (requires manual cleanup)."
+209,Events,What is e.persist()?,"In older React versions, it prevented the synthetic event object from being nullified (pooled). In React 17+, event pooling was removed, so this is no longer needed."
+210,Styling,What is BEM naming convention?,"Block Element Modifier. A CSS naming convention (e.g., .card__title--active) often used in React apps using standard CSS or SASS."
+211,Styling,"What is ""CSS Modules"" scoping?","It generates unique class names (e.g., Button_btn__1a2b3) during build, ensuring styles defined in one component don't leak to another."
+212,Performance,"What is ""overscanning"" in virtualization?",Rendering a few extra items above and below the visible viewport area so that the user doesn't see blank space immediately when scrolling.
+213,Redux,"What is ""Immer"" (used in Redux Toolkit)?","A library that allows you to write ""mutating"" logic in reducers (e.g., state.value = 123) which it essentially converts into immutable updates under the hood."
+214,Redux,Difference between Redux and Context API?,"Context is for low-frequency updates (themes, user auth) and dependency injection. Redux is for high-frequency updates and complex state logic."
+215,Forms,What is Formik's useFormik hook?,"A hook that returns all the state and helper methods needed to manage a form, without the need for the <Formik> render-prop component."
+216,Testing,What is jest.mock()?,"A Jest function used to auto-mock a module. For example, mocking axios so your tests don't actually make network requests."
+217,Testing,What is screen.debug()?,A method in React Testing Library that logs the current HTML structure of the rendered component to the console. Extremely useful for debugging tests.
+218,Patterns,"What is ""Composition"" in React?","Building complex UIs by combining smaller, independent components. For example, passing a Dialog component a message and Button as children."
+219,Patterns,"What is the ""Singleton"" pattern in React state?",Typically avoided in React. Global state (like Context or Redux) acts as a singleton source of truth rather than using Javascript class singletons.
+220,Build,What is Webpack?,"A module bundler. It takes your JavaScript, CSS, and images, and bundles them into static files (assets) for the browser."
+221,Build,What is Babel?,A JavaScript compiler. It converts modern JavaScript (ES6+) and JSX into backwards-compatible JavaScript (ES5) for older browsers.
+222,Build,"What is ""Hot Module Replacement"" (HMR)?","A feature in development that updates modules in the browser (adds/removes styles or logic) without a full page refresh, preserving state."
+223,Core,"What is the ""Root DOM node""?","The HTML element (usually <div id=""root""></div>) where React takes control and renders the application tree."
+224,Lifecycle,Can you use setState in componentDidUpdate?,"Yes, but only inside a conditional statement (checking if props/state changed) to avoid an infinite loop."
+225,Hooks,Can useRef trigger a re-render?,"No. Updating ref.current does not notify React of a change, so the component does not re-render."
+226,Hooks,How do you mimic componentDidMount with useEffect?,"Use an empty dependency array: useEffect(() => { ... }, [])."
+227,Hooks,How do you mimic componentDidUpdate with useEffect?,"Use useEffect with a dependency array, but check if it's the first render using a ref if you want to skip the mount phase."
+228,Hooks,How do you mimic componentWillUnmount with useEffect?,"Return a function from useEffect: useEffect(() => { return () => { /* cleanup */ } }, [])."
+229,Router,What is <BrowserRouter>?,A router implementation that uses the HTML5 History API to keep your UI in sync with the URL.
+230,Router,What is <HashRouter>?,"A router that uses the hash portion of the URL (e.g., #/user/123). Useful for static file servers where you can't configure server-side routing."
+231,Security,What is JWT storage best practice in React?,Do not store sensitive JWTs in localStorage (vulnerable to XSS). HttpOnly cookies are safer against XSS.
+232,Security,What is CSRF?,Cross-Site Request Forgery. React itself doesn't prevent it; it's prevented by ensuring your API requires anti-CSRF tokens or checks headers.
+233,Next.js,What is getStaticProps?,A function in Next.js (Pages router) that runs at build time to fetch data for Static Site Generation (SSG).
+234,Next.js,What is getServerSideProps?,"A function in Next.js (Pages router) that runs on every request to the server, used for Server-Side Rendering (SSR)."
+235,Next.js,What is the Image component in Next.js?,"An extension of the HTML <img> element that automatically optimizes images (resizing, lazy loading, WebP format) for performance."
+236,Internationalization,What is i18next?,"A popular internationalization framework for JavaScript, often used with react-i18next to translate React apps."
+237,Core,"What is a ""Mixin""?",An old pattern to share code between class components. It is deprecated and replaced by HOCs and Hooks due to naming clashes and complexity.
+238,Architecture,"What is ""Clean Architecture"" in frontend?","Organizing code by layers: Domain (Entities), Data (API/Repositories), and Presentation (React Components), keeping business logic independent of UI."
+239,Performance,What is window.requestAnimationFrame()?,A browser API that tells the browser you wish to perform an animation. React uses this internally to schedule updates efficiently.
+240,Optimization,"What is ""Inline Functions"" performance impact?","Defining functions inside render (e.g., onClick={() => doSomething()}) creates a new function every render. Usually negligible, but useCallback fixes it for heavy children."
+241,API,How to handle API errors globally?,Use an Axios interceptor or a custom useFetch hook that dispatches errors to a global notification/toast context.
+242,Accessibility,What is aria-live?,"An attribute that announces dynamic changes to screen readers (e.g., a toast message appearing) without the user moving focus."
+243,Accessibility,What is Focus Management?,"Manually moving the keyboard focus (using .focus()) to a new element, for example, moving focus to a Modal when it opens."
+244,State,"What is ""derived state""?",State that can be calculated from existing props or state. You should not store derived state in useState; calculate it during render.
+245,Hooks,What is a custom hook naming convention?,"It must start with ""use"" (e.g., useWindowSize). This allows the React linter to enforce Hook rules."
+246,Core,What is the key prop in a Fragment?,Syntax <React.Fragment key={id}> allows a key. Short syntax <> does not support keys.
+247,Debugging,What is the React Developer Tools extension?,"A browser extension that lets you inspect the React component hierarchy, view props/state, and profile performance."
+248,Environment,How do you specify a development vs production build?,Typically set via NODE_ENV. React automatically strips out warnings and development helpers when NODE_ENV is 'production'.
+249,Core,Can a React component return null?,Yes. Returning null effectively renders nothing (hides the component).
+250,Advanced,"What is ""Portals"" event bubbling?","Even if a Portal renders an element outside the parent DOM node, the event bubbles up the React tree as if it were rendered inside the parent."
+251,State,What is MobX?,"A state management library that uses observable data and transparent functional reactive programming (TFRP). It is mutable and ""magical"" compared to Redux."
+252,State,MobX vs Redux?,"Redux is explicit, immutable, and uses boilerplate. MobX is implicit, mutable, and requires less boilerplate code."
+253,Performance,"What is ""Layout Thrashing""?","When JavaScript reads and writes to the DOM repeatedly in the same frame, causing the browser to recalculate layout multiple times. React minimizes this via Virtual DOM."
+254,Architecture,"What is a ""Smart"" vs ""Dumb"" component?",Smart (Container) manages data/logic. Dumb (Presentational) just renders props.
+255,Hooks,What is useIntersectionObserver?,A common custom hook using the Intersection Observer API to detect when an element enters the viewport (used for lazy loading or animations).
+256,Hooks,What is useOnClickOutside?,A common custom hook used to detect clicks outside a specific element (essential for closing dropdowns or modals).
+257,Router,What is dynamic routing?,"Routes that take place as your app is rendering, not in a configuration file outside the running app (React Router is dynamic)."
+258,Router,What is the index route?,A child route with no path that renders in the parent's Outlet when the parent route is matched exactly.
+259,Next.js,What is API Routes in Next.js?,Files inside pages/api (or app/api) that allow you to build your own API endpoints (backend logic) directly within the Next.js app.
+260,Forms,What is Schema Validation?,"Using a library like Yup or Zod to define the shape and rules of your data object, often integrated with Formik or React Hook Form."
+261,Optimization,What is webpack-bundle-analyzer?,"A tool that visualizes the size of webpack output files with an interactive zoomable treemap, helping you find large modules to split/remove."
+262,Optimization,What is Gzip/Brotli compression?,Server-side compression of your build files (JS/CSS) before sending them to the browser. Significantly reduces download time.
+263,Patterns,"What is ""Render Callback""?",Another name for the Render Props pattern.
+264,Core,What is ReactDOM.createPortal?,The function used to implement Portals. It takes two arguments: the JSX to render and the DOM element to render it into.
+265,Core,What is ReactDOM.render vs ReactDOM.createRoot?,render is the legacy API (React 17). createRoot is the new API (React 18) required to enable concurrent features.
+266,PWA,What is a PWA (Progressive Web App)?,"A web app that uses modern web capabilities (manifest, service workers) to deliver an app-like experience (offline support, installable)."
+267,PWA,What is a Service Worker?,"A script that runs in the background, separate from a web page, enabling features like offline caching and push notifications."
+268,Styles,What is Sass/SCSS?,"A CSS preprocessor that adds features like variables, nesting, and mixins to CSS. React supports it out of the box with configuration."
+269,Styles,"What is ""JSS""?",A specific library for writing CSS in JavaScript.
+270,Testing,What is End-to-End (E2E) testing?,"Testing the full application flow from the user's perspective (e.g., Cypress, Playwright). It spins up a real browser."
+271,Testing,Cypress vs Jest?,Jest is a test runner mainly for Unit/Integration tests (runs in Node). Cypress is for E2E testing (runs in the browser).
+272,Hooks,Can you wrap a Hook in if block?,Never. It violates the Rules of Hooks and will break the internal linked list React uses to track state.
+273,Hooks,Can you call a Hook inside another Hook?,"Yes, this is exactly how Custom Hooks are created."
+274,Hooks,Can you call a Hook inside a regular JS function?,"No, unless that function is a Custom Hook. Hooks must be called from React components or Custom Hooks."
+275,Architecture,"What is ""Atomic Design"" methodology?","A way to structure UI components: Atoms (Buttons), Molecules (Search Bar), Organisms (Header), Templates, Pages."
+276,Core,"What is ""Prop Types"" oneOfType?","A validator that allows a prop to be one of several types (e.g., PropTypes.oneOfType([PropTypes.string, PropTypes.number]))."
+277,Core,What is React.isValidElement?,A utility to verify if an object is a React element.
+278,Advanced,"What is ""Hydration Mismatch""?",When the HTML rendered by the server (SSR) doesn't exactly match the HTML React tries to render on the client first pass. React will throw a warning.
+279,Data,"What is ""Normalization"" of state?","Storing data in objects keyed by ID (like a database) rather than arrays, to make lookups and updates faster (O(1))."
+280,React 18,"What is ""Streaming SSR""?","Sending HTML in chunks as it is generated, rather than waiting for the entire page to be ready. Allows the user to see parts of the page sooner."
+281,Hooks,What is useSyncExternalStore?,A hook (React 18) for subscribing to external stores (like Redux) in a way that is compatible with concurrent rendering features.
+282,Hooks,What is useInsertionEffect?,A hook intended for CSS-in-JS libraries to inject styles into the DOM before any layout effects fire.
+283,Security,Why sanitize user input?,"To prevent XSS. Even though React escapes data, logic flaws or dangerouslySetInnerHTML can still expose vulnerabilities."
+284,Router,How to handle 404 pages?,Add a route with path * at the end of your routes list to catch any path that didn't match previous routes.
+285,Patterns,"What is the ""Function as Child"" pattern?",Similar to Render Props. The children prop is a function: <Motion>{(value) => <div>{value}</div>}</Motion>.
+286,Core,"What is ""Unmounting""?",The phase when a component is removed from the DOM.
+287,Core,Does setState always trigger a re-render?,"Generally yes, unless the new state is strictly equal (===) to the current state, in which case React bails out."
+288,Data,"What is ""SWR"" library?",A React Hooks library for data fetching (Stale-While-Revalidate). Similar to React Query but lighter.
+289,Performance,What is the React.memo comparison function?,"The second argument to React.memo(Component, arePropsEqual). It allows you to customize how props are compared to decide if a re-render is needed."
+290,Advanced,"What is a ""Memory Leak"" in functional components?",Usually an async operation (API call) trying to call setUser after the component has already unmounted.
+291,Ecosystem,"What is ""Code Sandbox""?","An online editor for web development, very popular for sharing React snippets and reproductions of bugs."
+292,Hooks,What is useHistory?,The hook used in React Router v5 to navigate. Deprecated in v6 in favor of useNavigate.
+293,Hooks,What happens if useEffect returns nothing?,It's valid. It simply means there is no cleanup step required for that effect.
+294,Core,What is React.PureComponent?,A base class for class components that implements shouldComponentUpdate with a shallow prop and state comparison.
+295,Core,Can you use React inside an existing non-React app?,"Yes. You can mount a React root to a specific <div> inside a legacy app (e.g., jQuery or plain HTML) without rewriting the whole app."
+296,Core,What is the entry point file typically called?,index.js or main.jsx. It imports App and renders it into the DOM root.
+297,Core,"What are ""default exports"" vs ""named exports""?",Default: export default Component. Named: export const Component. Named exports are better for tree-shaking and refactoring.
+298,Tools,"What is ""Linting""?",The process of running a program (ESLint) that analyzes code for potential errors and stylistic issues.
+299,Performance,How does key help with performance?,"It allows React to reuse existing DOM elements when a list changes, rather than destroying and recreating them, which is expensive."
+300,Advanced,"What is ""Isomorphic React""?",Another term for Universal or Server-Side Rendering (apps that can run on both server and client).
+301,React Native,What is the main difference between React.js and React Native?,React.js renders to the Virtual DOM (Web). React Native renders to Native API components (iOS/Android Views) via a bridge.
+302,React Native,What replaces <div> and <span> in React Native?,"<View> replaces <div>, and <Text> replaces <span>. You cannot use HTML tags in React Native."
+303,React Native,How is styling different in React Native?,"It uses JavaScript objects (similar to inline styles) via StyleSheet.create, not CSS files or className strings."
+304,TypeScript,"What is Omit<T, K> useful for in React?","Removing specific props from an interface. E.g., Omit<ButtonProps, 'onClick'> to override the click handler type."
+305,TypeScript,"What is Pick<T, K>?",The opposite of Omit. It creates a new type by selecting a specific set of properties from an existing type.
+306,TypeScript,How to type a generic custom hook?,function useQuery<T>(url: string): T { ... } allowing the consumer to define the expected data structure.
+307,Patterns,"What is the ""Controlled vs Uncontrolled"" distinction?","Controlled: React manages state (Source of Truth). Uncontrolled: DOM manages state (Source of Truth), accessed via Ref."
+308,Patterns,"What is the ""Slot"" pattern?","Passing components as props (other than children) to fill specific sections of a layout (e.g., <Layout sidebar={<Sidebar />} content={<Feed />} />)."
+309,Redux,What is Redux Saga?,"A middleware library that handles side effects (async tasks) using ES6 Generators, offering more control over complex flows than Thunks."
+310,Redux,Thunk vs Saga?,"Thunks are simple functions (good for basic API calls). Sagas are generator functions (good for complex flows like cancellation, race conditions)."
+311,State,"What is ""Propagating"" state?","Passing state down through props. If deep, it becomes ""Prop Drilling""."
+312,Core,What is React.Children.toArray?,"Converts the children opaque data structure into a flat array with keys assigned to each child, useful for sorting or slicing children."
+313,Core,What is React.Children.only?,Verifies that children has only one child (a single element) and returns it. Throws an error if there are multiple children.
+314,Testing,"What is a ""Spy"" in Jest?","A function that tracks calls to another function (arguments, return value, this context) without necessarily changing its implementation."
+315,Testing,What is TDD (Test Driven Development)?,"A process where you write the test before writing the component/logic, ensuring the code meets requirements from the start."
+316,Performance,What is the impact of huge bundle.js?,"Slower download, slower parsing, and slower execution time, leading to a high TTI (Time to Interactive)."
+317,Performance,How does React.memo handle object props?,"It does a shallow comparison. If a parent passes a new object reference every render, React.memo will fail to prevent re-renders unless you use useMemo in the parent."
+318,Styling,"What is ""Atomic CSS"" (e.g., Tailwind)?","A methodology where each class represents a single CSS property (e.g., text-center, p-4), promoting reusability and small CSS bundles."
+319,Styling,"What is ""Emotion""?","A popular CSS-in-JS library, similar to Styled Components but offers both string and object styles and high performance."
+320,Advanced,"What is the ""key"" prop limit?",Keys only need to be unique among siblings. You can have the same key '1' in two separate lists on the same page.
+321,Hooks,What is the return type of useRef?,A MutableRefObject which contains a single property .current.
+322,Hooks,Is useRef synchronous?,Yes. Assigning ref.current = value happens instantly and does not trigger a re-render.
+323,Core,"What is a ""Fragment"" short syntax?",<>...</>
+324,Core,Can you attach className to a Fragment?,No. The short syntax <> accepts no attributes. <React.Fragment> only accepts key.
+325,Accessibility,"What is a ""Skip Link""?",A hidden link at the top of the page that allows keyboard users to skip navigation and jump directly to the main content.
+326,Accessibility,What is semantic HTML in React?,"Using <button> instead of <div onClick>, <main> for content, etc. React encourages standard HTML semantics."
+327,Architecture,What is SOLID?,"A set of 5 design principles (Single responsibility, Open-closed, Liskov substitution, Interface segregation, Dependency inversion) applied to OOP and often React components."
+328,Architecture,Single Responsibility Principle in React?,"A component should do one thing well. If it handles UI, Logic, and Fetching, it should be split."
+329,Architecture,DRY Principle?,"""Don't Repeat Yourself"". Extracting common logic into Custom Hooks or shared utility components."
+330,Hooks,useEffect vs useMemo?,"useEffect is for side effects (after render). useMemo is for performance optimization (during render, returns a value)."
+331,Hooks,Can useEffect handle cleanup?,"Yes, by returning a function. This function runs before the component unmounts or before the effect re-runs."
+332,Next.js,"What is ""ISR"" (Incremental Static Regeneration)?",Allows you to update static pages after you’ve built your site.
+333,Next.js,What is _app.js?,"The custom App component in Next.js pages router used to initialize pages (keeping state between routes, global CSS)."
+334,Next.js,What is _document.js?,"Used to augment the application's <html> and <body> tags (e.g., adding lang attributes or Google Analytics scripts)."
+335,Router,What is useMatch?,A hook in React Router v6 used to check if the current URL matches a specific path pattern.
+336,Core,"What is ""Cross-Origin"" in React?","Not specific to React, but React apps fetching data from a different domain need CORS (Cross-Origin Resource Sharing) headers enabled on the server."
+337,Security,What is the risk of {...props} (Prop Spreading)?,You might accidentally pass sensitive or invalid props to a child component or HTML element that doesn't expect them.
+338,Build,"What is ""Ejecting"" in Create-React-App?","Running npm run eject removes the single build dependency and exposes all config files (Webpack, Babel) so you can edit them manually. It is irreversible."
+339,Build,What is Parcel?,"A zero-configuration web application bundler, an alternative to Webpack and Vite."
+340,Advanced,What is unstable_batchedUpdates?,"An internal React API (pre-React 18) used to manually batch updates inside async events. In React 18, this is automatic."
+341,Redux,What is the Store?,The object that holds the application state tree in Redux.
+342,Redux,What is combineReducers?,A helper function that turns an object whose values are different reducing functions into a single reducing function.
+343,Data,"What is ""Polling""?","Repeatedly fetching data at intervals (e.g., every 5 seconds) to keep the UI fresh. Can be done with useEffect and setInterval."
+344,Data,"What is ""WebSocket""?","A communication protocol for full-duplex communication channels. React uses this for real-time features (chat, notifications) instead of HTTP polling."
+345,Hooks,Why put setSomething in dependency array?,You generally don't need to. React guarantees that state setter functions (from useState) are stable and won't change identity.
+346,Core,"What is the ""Mounting"" phase?",When an instance of a component is being created and inserted into the DOM.
+347,Lifecycle,getSnapshotBeforeUpdate usage?,Rarely used. It captures some information from the DOM (like scroll position) before it is potentially changed by an update.
+348,Lifecycle,shouldComponentUpdate vs PureComponent?,PureComponent implements shouldComponentUpdate with a shallow comparison by default. Manual implementation allows deep comparison (careful of performance).
+349,Ref,callback refs vs useRef?,Callback refs give you a function that receives the DOM node when it mounts/unmounts. useRef is just a container. Callback refs are better for dynamic lists.
+350,Core,"What is ""Re-parenting""?",Moving a component from one parent to another. React will typically unmount and remount it (losing state) unless you use Portals or keep it in the same place in the tree.
+351,Ecosystem,"What is ""Remix""?","A full-stack web framework based on React (created by React Router team) focusing on web standards, fast loading, and progressive enhancement."
+352,Ecosystem,"What is ""Gatsby""?","A React-based open-source framework for creating static websites and apps, known for its rich plugin ecosystem and GraphQL data layer."
+353,Hooks,"What is the ""stale closure"" problem?",When a function inside a component captures variables from an old render and fails to see updates because dependency arrays were incomplete.
+354,Advanced,"What is a ""Memory Leak"" via Event Listener?",Adding window.addEventListener in useEffect but forgetting to removeEventListener in the return function.
+355,Patterns,"What is the ""Module Pattern""?",Using ES6 modules to export/import reusable logic. React components are effectively modules.
+356,Patterns,"What is ""HOC hell""?","Using too many Higher-Order Components (wrappers) leads to a deep, hard-to-debug component tree (Wrapper > Wrapper > Wrapper > Component)."
+357,Router,What is useLocation state?,"You can pass state during navigation (Maps('/path', { state: { id: 1 } })). This state is accessible via useLocation().state without appearing in the URL."
+358,Security,"What is ""Content Security Policy"" (CSP)?","An HTTP header that allows site operators to restrict the resources (such as JavaScript, CSS, Images) that user agents are allowed to load. Critical for React apps."
+359,Testing,"What is ""Happy Path"" testing?",Testing the default scenario where no errors occur and the user uses the feature exactly as intended.
+360,Testing,"What is ""Edge Case"" testing?","Testing boundaries (empty lists, huge numbers, offline status, API failure) to ensure the app doesn't crash."
+361,Advanced,Can we use async/await in render?,No. The render method must be pure and synchronous. Async logic belongs in effects or event handlers.
+362,Hooks,"What is useReducer ""lazy initialization""?","Passing a third argument (init function) to useReducer to calculate the initial state lazily, useful if the calculation is expensive."
+363,Performance,"What is ""Interaction to Next Paint"" (INP)?","A core web vital replacing FID. It measures the latency of every interaction (click, tap, key) users make with the page."
+364,Styles,"What is ""CSS Reset"" / ""Normalize""?","A CSS file loaded before your app styles to ensure browsers (Chrome, Safari, Firefox) render default elements consistently."
+365,Hooks,What is useContext performance pitfall?,"If the Context value changes, every component consuming that context re-renders, even if they only use a small part of the data."
+366,Core,What is React.version?,A property to check which version of React is currently running (console.log(React.version)).
+367,Environment,What is .env.local?,A file to store local environment variables that are ignored by Git (secure).
+368,Hooks,"Difference between useEffect(fn) and useEffect(fn, [])?","useEffect(fn) runs after every render. useEffect(fn, []) runs only on mount."
+369,React 18,What is startTransition?,A function to wrap state updates that are non-urgent. React will prioritize user input over these updates.
+370,Hooks,Can Hooks return values?,Yes. Custom hooks almost always return data or functions for the component to use.
+371,Optimization,"What is ""Code Splitting"" via Routes?","Loading the code for a specific page (route) only when the user navigates to it, usually done with React.lazy and React Router."
+372,Debugging,"What is ""Source Map""?","A file that maps the minified/transpiled code back to the original source code, allowing you to debug original code in the browser console."
+373,Patterns,"What is ""Render Highjacking""?","A pattern (often in HOCs) where the wrapper controls the rendering of the wrapped component, potentially altering its props or result."
+374,State,"What is ""Mutable"" vs ""Immutable""?",Mutable objects can be changed after creation. Immutable objects cannot. React state requires Immutability (create new object) to detect changes.
+375,State,Why use ... (Spread Operator) in Reducers?,"To copy the existing state properties into a new object before overriding specific properties, ensuring immutability."
+376,Core,What is dangerouslySetInnerHTML?,The React equivalent of innerHTML. It allows setting HTML directly from a string (risky for XSS).
+377,Testing,"What is ""Component Contract""?",The agreement of what props a component accepts and what it renders in return.
+378,Hooks,Can you use Hooks in Class Components?,No. You must use a wrapper Functional Component or Higher-Order Component to pass Hook values to a Class Component.
+379,Patterns,"What is a ""Layout Component""?","A component that defines the structure (Header, Sidebar, Main) and accepts content as children."
+380,Advanced,"What is ""Server Actions"" (React 19/Next 14)?","Functions that execute on the server but can be called directly from Client Components (e.g., in form action), simplifying data mutation."
+381,Core,"What is ""Strict Mode"" double render?","In Development, React mounts, unmounts, and mounts components again to verify effects are resilient to mounting/unmounting."
+382,Hooks,How to conditionally fire an effect?,"Put the condition inside the effect: useEffect(() => { if (!condition) return; ... }, [condition])."
+383,Forms,onInput vs onChange in React?,"In React, onChange behaves like the native onInput (fires on every keystroke). In native HTML, onChange only fires on blur."
+384,Data,"What is ""Waterfall"" request?","When a parent fetches data, renders, then the child fetches data, renders. Causes slow load times. Fix with parallel fetching or Promise.all."
+385,Router,What is useBeforeUnload?,A hook (React Router) to prompt the user if they try to leave the page with unsaved changes.
+386,Ref,Can you pass ref to a Functional Component?,"Only if you wrap that component in React.forwardRef. Otherwise, functional components don't have instances."
+387,Patterns,"What is ""Controlled Inputs""?",Inputs where the value is controlled by React state and onChange updates that state.
+388,Security,"What is ""Dependency Confusion""?",An attack where a hacker uploads a package to npm with the same name as your internal private package. Scoped packages (@myorg/pkg) prevent this.
+389,Core,What is npm vs yarn vs pnpm?,Package managers. npm is default. yarn was faster (now similar). pnpm is disk-efficient (uses symlinks).
+390,Optimization,"What is ""Preloading""?","Loading a resource (script/image) before it is needed (<link rel=""preload"">), often used for fonts or hero images."
+391,Advanced,What is the void operator in TS/React?,Used to indicate a function returns nothing. () => void.
+392,Core,What is React.Profiler?,"A built-in component <Profiler id=""Name"" onRender={callback}> to measure rendering cost programmatically."
+393,API,fetch vs XMLHttpRequest?,fetch is Promise-based and modern. XMLHttpRequest is callback-based and old. React apps almost exclusively use fetch or axios.
+394,Core,"What is ""Event Bubbling""?",Events start at the target element and bubble up to the root. React events bubble by default.
+395,Core,How to stop Event Bubbling?,e.stopPropagation().
+396,Core,How to prevent Default Behavior?,"e.preventDefault() (e.g., stopping a form submit from reloading the page)."
+397,Patterns,"What is ""Dark Mode"" implementation?",Typically using a Context Provider to hold the theme string ('light'/'dark') and a CSS-in-JS library or CSS variables to swap colors.
+398,Hooks,What is useEvent (Experimental)?,A proposed hook to create an event handler that has stable identity but can access the latest state/props without needing dependencies.
+399,Debugging,"What is ""React DevTools Highlight Updates""?",A setting in DevTools that flashes a border around components whenever they re-render. Essential for performance tuning.
+400,Final,How do you stay updated with React?,"Follow the official React Blog, read RFCs (Request for Comments) on GitHub, and follow core team members on social media."
+401,React 19,What is the React Compiler (React Forget)?,"An automatic optimizing compiler that auto-memoizes components and hooks, removing the need for useMemo and useCallback."
+402,React 19,What is the use() hook?,A new API to read the value of a resource (like a Promise or Context) inside a component. It replaces useContext and can be called conditionally.
+403,React 19,What is useOptimistic?,"A hook that allows you to show a different state while an async action (like a server mutation) is pending, improving perceived performance."
+404,React 19,What is useFormStatus?,"A hook that gives you status information (like pending) of the last form submission, used inside form children components."
+405,React 19,What is useFormState (or useActionState)?,"A hook that allows you to update state based on the result of a form action (Server Action), handling errors and success messages."
+406,Architecture,What is a Monorepo?,"A repository that holds the code for multiple projects (e.g., web app, mobile app, UI library) in a single place. Tools like Nx or Turborepo are used."
+407,Architecture,What is Module Federation?,A Webpack feature that allows separate React builds (Micro-frontends) to dynamically import code from each other at runtime.
+408,Architecture,What is BFF (Backend for Frontend)?,An architectural pattern where a server is created specifically for the React frontend to format/aggregate data before sending it to the client.
+409,Patterns,"What is the ""Headless UI"" pattern?","Libraries (like Radix UI or Headless UI) that provide logic and accessibility but no styles, giving you full control over the visual design."
+410,Patterns,"What is ""Inversion of Control"" in Props?","Instead of passing a boolean showIcon, you pass the icon component itself <Button icon={<StarIcon />} />, giving the parent control."
+411,Performance,"What is ""Time to Interactive"" (TTI)?",The time it takes for the page to become fully interactive (event handlers are attached and the main thread is idle).
+412,Performance,"What is ""Cumulative Layout Shift"" (CLS)?",A metric that measures visual stability. It quantifies how much elements move around during loading (jank).
+413,Security,"What is ""Prototype Pollution""?","A vulnerability where an attacker modifies the base Object.prototype, potentially affecting all objects in the app. Be careful when merging deep objects."
+414,Testing,What is MSW (Mock Service Worker)?,A library that intercepts network requests at the network layer (Service Worker) to mock API responses for tests and development.
+415,Testing,"What is ""Visual Regression Testing""?",Tools (like Percy or Chromatic) that take screenshots of your components and compare them pixel-by-pixel to detect unintended style changes.
+416,State,"What is ""Atomic State"" (Recoil/Jotai)?","State is broken into small, independent units (atoms). Components subscribe only to the specific atoms they need, minimizing re-renders."
+417,State,"What is ""Proxy-based"" State (Valtio)?","State management that uses JS Proxies to track changes automatically. You mutate the state directly, and the UI updates (magic)."
+418,Hooks,Can useContext replace Redux completely?,"For low-frequency updates (User, Theme), yes. For high-frequency, complex updates (Dashboards), No—Context triggers re-renders in all consumers."
+419,Core,What is flushSync used for?,"To force React to flush updates synchronously. Rarely used, but helpful if you need to read the DOM immediately after a state change (e.g., for focus)."
+420,Advanced,"What is the ""Event Loop"" in relation to React?","React's rendering/diffing runs on the Call Stack. Async tasks (useEffect, data fetching) run in the Task Queue, keeping the UI responsive."
+421,Advanced,"What is a ""Race Condition"" in useEffect?","When two requests are sent, and the second one finishes before the first one. The first one then overwrites the correct data. Fix: cleanup flags or AbortController."
+422,Ecosystem,"What is ""tRPC""?",A library for end-to-end typesafe APIs. It allows your React frontend to import types directly from your Node backend (no code generation needed).
+423,Ecosystem,"What is ""TanStack Router""?","A modern, type-safe router that manages URL state and caching, offering better type safety than standard React Router."
+424,Forms,What is the name attribute's role in uncontrolled forms?,It is the key used to retrieve the data from the FormData object during form submission.
+425,Scenarios,"How to handle 10,000 items in a list?",Virtualization (react-window). Only render the ~10 items visible on screen.
+426,Scenarios,How to handle heavy computation on the client?,"Use Web Workers to run the calculation on a background thread, preventing the UI (Main Thread) from freezing."
+427,Architecture,"What is ""Islands Architecture"" (Astro)?","A pattern where the page is static HTML by default, and only interactive regions (""islands"") are hydrated with React."
+428,Build,"What is ""Tree Shaking"" limitations?",Dynamic imports or side-effects in modules can prevent tree shaking. You must ensure your code is static enough for the bundler to analyze.
+429,Debugging,What is console.trace()?,Outputs a stack trace to the console. Useful in React to see the chain of function calls that led to a specific error.
+430,Patterns,"What is a ""Toggle"" hook?","A simple custom hook useToggle(initial) that returns [on, toggle] to handle boolean states (modals, checkboxes)."
+431,Router,"What is ""History API""?",The browser standard (window.history.pushState) that React Router uses under the hood to change the URL without reloading the page.
+432,Optimization,Why avoid inline objects in props?,"<Comp style={{color: 'red'}} /> creates a new object reference every render, breaking React.memo optimization in the child."
+433,Optimization,Why avoid inline arrow functions in props?,<Comp onClick={() => handleClick()} /> creates a new function reference every render.
+434,Types,interface vs type in React props?,"interface is better for libraries (extensible). type is better for unions/intersections. Functionally, they are mostly interchangeable for props."
+435,Advanced,"What is ""Currying"" in event handlers?",const handleChange = (id) => (e) => { ... }. Used to pass extra parameters to an event handler.
+436,Core,What happens if you throw a Promise?,"In React 18+, throwing a Promise is the mechanism that triggers Suspense. React catches it and shows the fallback until the Promise resolves."
+437,Core,What is React.startTransition?,"Lets you update state without blocking the UI. It marks the update as ""non-urgent""."
+438,Core,useTransition vs useDeferredValue?,useTransition wraps the code that causes the state update. useDeferredValue wraps the value resulting from an update.
+439,Testing,"What is ""Code Coverage""?",A metric showing what percentage of your codebase is executed by your tests. 100% is rarely necessary; 80% is a good standard.
+440,Environment,"What is ""Staging"" vs ""Production""?",Staging is a replica of production for final testing. Production is the live environment. React builds should be identical in both.
+441,Accessibility,"What is ""Tab Index""?","tabIndex=""0"" makes an element focusable. tabIndex=""-1"" makes it focusable programmatically but skips keyboard navigation."
+442,Accessibility,"What is the ""Semantic Tree""?",The structure screen readers use to interpret the page. React components must render semantic HTML to ensure this tree is valid.
+443,Hooks,What is useLayoutEffect vs useEffect timing?,LayoutEffect: Fires after DOM mutation but before paint (Sync). Effect: Fires after paint (Async).
+444,Architecture,"What is ""Schema-First"" development?","Defining the API schema (GraphQL/Swagger) first, then generating TypeScript types for the React frontend automatically."
+445,Styles,"What is ""CLS"" impact of images?","If an image loads without defined width/height, it pushes content down, causing layout shift. Always define aspect ratio."
+446,Security,How to store tokens securely?,"HttpOnly cookies are safest (inaccessible to JS). If using localStorage, you are vulnerable to XSS token theft."
+447,Scenarios,How to debug a white screen (Blank Page)?,"Check console for errors, check Root mounting, check for infinite loops, or check if the build path is correct in index.html."
+448,Advanced,"What is ""Referential Equality""?","{} === {} is false. React relies on this. If references change, React assumes data changed."
+449,Core,"What is the ""Diffing Algorithm"" heuristic?",1. Different types produce different trees. 2. Keyed elements are stable. This makes the algorithm O(n) instead of O(n^3).
+450,Tools,"What is ""Husky""?","A tool to run git hooks (e.g., run linting or tests before a commit is allowed), ensuring code quality."
+451,React Native,"What is ""Expo""?",A framework and platform for universal React applications (React Native) that simplifies the build/deploy process without touching native code.
+452,React Native,"What is ""Fast Refresh""?","React Native's implementation of Hot Module Replacement, allowing instant feedback on code changes while preserving state."
+453,Next.js,What is Middleware in Next.js?,"Code that runs before a request is completed (edge functions), allowing you to modify the response (rewrites, redirects, auth checks)."
+454,Patterns,"What is ""Skeleton Loading""?","Displaying a gray, animated placeholder structure while data fetches, reducing perceived wait time compared to a spinner."
+455,Advanced,What is Object.is?,The comparison algorithm React uses for useState and useEffect dependencies (similar to === but handles NaN and -0 correctly).
+456,Core,"What is ""Automatic Batching""?","In React 18, all updates (even in Promises/Timeouts) are batched. In React 17, only event handlers were batched."
+457,Hooks,How to mock a custom hook?,"In Jest: jest.mock('./useCustomHook', () => ({ useCustomHook: () => 'mocked-value' }));."
+458,Patterns,"What is ""Feature Flags""?",Using a service (like LaunchDarkly) or context to conditionally hide/show features in production without redeploying.
+459,Performance,"What is ""Pre-rendering""?",Generating HTML in advance (SSG) or on the server (SSR) rather than relying solely on client-side JS.
+460,Advanced,"What is a ""Thunk""?",A programming term for a subroutine used to inject an additional calculation into another subroutine (used in Redux for async).
+461,State,"What is ""XState""?","A library for creating State Machines in JavaScript. Useful in React for complex logic where you need to visualize all possible states (e.g., a payment flow)."
+462,Scenarios,How to handle multi-language (i18n)?,Use react-i18next. Wrap the app in a provider. Replace text with keys: {t('welcome_message')}.
+463,Architecture,"What is ""Separation of Concerns""?","Keeping Logic, View, and Styles separate. Even in React (where JSX mixes them), you separate via Hooks (Logic) and Components (View)."
+464,Testing,"What is ""Flaky Test""?",A test that sometimes passes and sometimes fails without code changes. Usually caused by async timing issues or race conditions.
+465,Hooks,What is usemediaquery?,A common custom hook pattern that subscribes to window.matchMedia to return true/false based on screen size (responsive JS).
+466,Core,"Why are hooks ""Top Level"" only?",React relies on the call order to map state to the correct hook. Variables inside loops/conditions would break this order.
+467,Advanced,"What is ""Closure"" in React?","Functions capture the variables from the scope they were created in. useEffect often captures ""stale"" variables from a previous render if dependencies are missing."
+468,Advanced,How to break a massive component?,1. Group related JSX into sub-components. 2. Extract logic into Custom Hooks. 3. Use Utility functions for pure logic.
+469,Scenarios,App is slow. Where do you start?,1. React Profiler (find heavy renders). 2. Chrome Performance Tab (find heavy JS). 3. Network Tab (slow API). 4. Bundle Analyzer (huge files).
+470,Hooks,useCallback vs raw function?,Raw function is faster to create. useCallback is only useful if passing the function to a memoized child component (to prevent breaking referential equality).
+471,Redux,"What is ""Slice"" in Redux Toolkit?","A collection of Reducer logic and Actions for a single feature, generated automatically to reduce boilerplate."
+472,Build,"What is ""Polyfill""?","Code that implements a feature on web browsers that do not support the feature (e.g., adding Promise support to IE11)."
+473,Tools,"What is ""Lighthouse""?","An automated tool for improving the quality of web pages (audits Performance, Accessibility, SEO)."
+474,Core,"What is ""Legacy Context""?",The old context API (pre-16.3). It is deprecated and should not be used.
+475,Advanced,Can useEffect mimic constructor?,"Ideally, use useMemo or initialize state lazily. useEffect runs after render, so it's too late for constructor-like logic that must happen before paint."
+476,React Native,"What is ""Metro Bundler""?",The JavaScript bundler used by React Native (analogous to Webpack for Web).
+477,Patterns,"What is ""Container/Presenter"" status?","It is largely replaced by Hooks. Logic is now extracted into Hooks, and the Component becomes the Presenter."
+478,Core,"What is ""Ref Forwarding""?",automatically passing a ref through a component to one of its children.
+479,Security,"What is ""Clickjacking""?",Using transparent iframes to trick users. Use X-Frame-Options: DENY header to prevent your React app from being iframed.
+480,Advanced,What is structuredClone?,A modern browser API to deep clone objects. Useful in reducers instead of messy spread operators (though generic libraries are safer for older browsers).
+481,Ecosystem,"What is ""Electron""?",A framework to build Desktop Apps (Windows/Mac/Linux) using Web Technologies (React).
+482,Scenarios,"User complains ""Buttons don't work"".",Check for JS errors blocking the thread. Check if onClick handlers are actually attached. Check if z-index of an overlay is blocking clicks.
+483,Architecture,"What is ""DDD"" (Domain Driven Design)?","Structuring your React app by Business Domain (e.g., features/checkout, features/inventory) rather than technical layers."
+484,Hooks,What is useRef for variables?,"Storing data that is mutable (can change) but should not trigger a re-render when it changes (e.g., timers, scroll positions)."
+485,Core,"What is a ""Pure Function""?",A function that always returns the same output for the same input and has no side effects. Reducers must be pure.
+486,Testing,"What is ""Mocking the Date""?",Freezing the system time in tests so that components relying on new Date() produce consistent snapshots.
+487,Advanced,"What is ""Temporal Dead Zone""?",Accessing a let or const variable before it is declared. Can happen in complex React renders if variables are disorganized.
+488,Optimization,"What is ""Font FOUT/FOIT""?",Flash of Unstyled/Invisible Text. Optimize font loading in React apps using font-display: swap.
+489,Scenarios,"How to fix ""Prop Drilling"" without Context?",Use Component Composition. Pass the child component down as a prop (children or slot) so intermediate components don't need to know the data.
+490,Environment,What is CI/CD?,"Continuous Integration/Deployment. Automating the running of React tests, linting, and build scripts whenever code is pushed to Git."
+491,React 18,What is renderToPipeableStream?,A Node.js streaming API for Server-Side Rendering that supports Suspense and HTML streaming.
+492,Core,"What is ""Strict Mode"" side effects?",It intentionally invokes generic lifecycle methods twice to help you find impure side effects.
+493,Tools,"What is ""npm audit""?",A command to check your dependencies for known security vulnerabilities.
+494,Patterns,"What is ""Polymorphic Component""?","A component that can accept an as prop to change the HTML tag it renders (e.g., <Text as=""h1""> vs <Text as=""p"">)."
+495,Advanced,"What is ""Memoization"" cost?",Memoization (useMemo) has a memory and computation cost. Don't use it for simple calculations; only for expensive ones.
+496,Career,Why choose React over Vue?,"React has a larger ecosystem, more jobs, and is ""Just JavaScript"" (flexible). Vue is easier to learn but more opinionated (DSL)."
+497,Career,"What is ""Technical Debt"" in React?","Using any in TS, ignoring lint warnings, prop drilling deep, or writing huge monolithic components to ""ship fast"" that must be refactored later."
+498,Future,What is the future of React?,"Server Components, Compiler-based optimizations (No manual memoization), and full-stack capabilities (Next.js/Remix integration)."
+499,Fun,"What is the ""Rules of Hooks"" plugin?",An ESLint plugin (eslint-plugin-react-hooks) that catches hook errors automatically. It is mandatory for modern dev.
+500,Final,How do you become a Senior React Dev?,"Master the fundamentals (JS), understand how React works under the hood (Fiber), write clean/testable code, and understand Architecture (SSR, Patterns, State)."
+501,System Design,"Design an ""Infinite Scroll"" feed. How do you handle memory leaks as the list hits 10k items?",Use Virtualization (Windowing) to render only visible nodes. Implement DOM recycling and maintain scroll position anchors when refetching upstream data.
+502,System Design,Architect a Real-Time Chat App. How do you handle message ordering and offline support?,Use WebSockets for live data. Implement Optimistic UI (append local msg immediately). Use indexedDB for offline storage and a sync queue for reconnection.
+503,System Design,"Design a ""Drag and Drop"" Kanban Board. How do you optimize performance during the drag?","Avoid React state updates on mousemove. Use Refs and direct DOM transformation (transform: translate) for the drag preview, then sync React state only on drop."
+504,System Design,How to build a File Uploader with Progress & Cancellation?,Use XMLHttpRequest (native progress events) or Axios. Store the AbortController in a Ref to allow the user to cancel the specific request. Chunk large files.
+505,System Design,Design a generic Role-Based Access Control (RBAC) system.,specific usePermission hook. Create a <Protected> wrapper component that checks user roles against required props and renders children or null/Redirect.
+506,System Design,"How to prevent ""Theme Flashing"" (FOUC) in SSR apps?",Inject a critical script in the <head> (blocking) to read localStorage and set the CSS variable/class before the body paints.
+507,System Design,Design an Undo/Redo system for a complex form.,"Use two stacks (Past, Future) and a Present state. On ""Undo"", push Present to Future, pop Past to Present. Libraries like redux-undo or custom hooks work best."
+508,System Design,How to handle A/B Testing without performance loss?,"Decisions should ideally happen at the Edge (Middleware) or Server. Lazy load the ""B"" variant component to ensure users in group ""A"" don't download dead code."
+509,Internals,"What is ""Double Buffering"" in React Fiber?","React keeps two trees: current (visible) and workInProgress. Work happens on the hidden tree. Once complete, pointers swap. This enables interruptible rendering."
+510,Internals,Why does React use Linked Lists for Hooks?,"The Call Stack is temporary. To persist state between renders, React attaches a Linked List of hook data to the Fiber node. Order matters to traverse this list correctly."
+511,Internals,Does Context bypass React.memo?,"Yes. If a component is memoized but consumes a Context, it will re-render when that Context value changes, regardless of its props."
+512,Internals,What exactly triggers useEffect cleanup?,1. Component unmount. 2. Dependency array changes (cleanup runs before the new effect). 3. Re-renders (if no dependency array is provided).
+513,Internals,Why is return null still a performance cost?,"React still creates the Fiber node, runs lifecycle methods, calculates diffs, and executes hooks. It just skips the final DOM painting step."
+514,Internals,How does React 17+ handle Event Pooling?,It doesn't. Event pooling was removed. e.persist() is no longer needed. Events are now standard JS objects and are garbage collected normally.
+515,Internals,"If you have two useEffects, which runs first?",They run in the order they are written in the code.
+516,Edge Case,Defining a component inside another component?,"Never do this. The inner component is redefined on every render, causing it to unmount/remount, losing all local state and focus."
+517,Edge Case,Can a parent catch a child's useEffect error?,No. Standard try/catch in render doesn't catch async errors. You must use an Error Boundary component.
+518,Next.js,layout.js vs template.js in Next 13+?,layout preserves state on navigation (does not remount). template creates a new instance (remounts) on navigation.
+519,React Query,isLoading vs isFetching?,"isLoading: ""I have no data AND I am loading"" (Initial load). isFetching: ""I am loading"" (Includes background refetches where old data is still visible)."
+520,State,"How do ""Transient Updates"" (Zustand/Valtio) work?","Subscribing to changes outside React's render cycle (e.g., updating a Ref directly). Useful for high-performance needs like scroll animations or mouse tracking."
+521,Patterns,"Limitation of the ""Compound Component"" pattern?","React.Children.map cannot ""see"" inside wrapper components (e.g., <Tabs><div><Tab/></div></Tabs> breaks it). Context API is the modern fix for this."
+522,TypeScript,"What is a ""Polymorphic"" Component?","A component that accepts an as prop to change its HTML tag (e.g., Button acting as <a>). Requires ComponentPropsWithRef<E> to type correctly."
+523,Security,How to prevent JSON Hijacking?,React can't fix this alone. The API should prepend while(1); to the response (infinite loop) to prevent malicious <script> tags from reading the array.
+524,Testing,How to test setInterval hooks?,Do not wait for real time. Use Jest Fake Timers: jest.useFakeTimers() and jest.advanceTimersByTime(1000).
+525,Styles,"What is ""Zero-Runtime"" CSS-in-JS?","Libraries (Vanilla Extract, Panda CSS) that compile styles to static .css files at build time, removing the JavaScript runtime overhead of Emotion/Styled-Components."
+526,Coding,Implement usePrevious hook.,Use useRef to store the value. Use useEffect to update ref.current = value. Return ref.current. (The return happens before the update).
+527,Coding,Implement useDebounce hook.,"Input: value, delay. useEffect sets a setTimeout to update a local state. return function clears timeout. Return the debounced state."
+528,Coding,Implement generic useFetch.,"State: data, loading, error. Use useEffect. Create AbortController. On unmount, call abort(). Handle err.name === 'AbortError'."
+529,Coding,"Implement ""Click Outside"" hook.",useEffect adds mousedown listener to document. Check if (ref.current && !ref.current.contains(e.target)). Call callback. Cleanup listener.
+530,Coding,"Implement ""Deep Compare"" useEffect.",Store previousDeps in a useRef. Use a helper function (like Lodash isEqual) to compare new deps vs ref. Only run effect if !isEqual.
+531,Coding,"Build a ""Star Rating"" component.",Needs two states: rating (persisted) and hover (temporary). Loop 5 times. `active = index <= (hover
+532,Coding,Optimize a slow list (No Virtualization).,1. React.memo list items. 2. Ensure key is stable (not index). 3. Pass dispatch or useCallback instead of inline arrow functions.
+533,Coding,"Build a Recursive ""Folder Tree"".","Component takes node. If node.children exists, map and render <Self node={child} />. Handle open/close state."
+534,Coding,Context Provider Performance.,"The value object passed to Provider must be memoized (useMemo). If not, every render of Provider creates a new object, forcing consumers to re-render."
+535,Coding,Implement useInterval (Dan Abramov style).,useEffect is tricky with intervals (stale closures). Save the callback in a useRef. useEffect sets interval and calls savedCallback.current.
+536,Soft Skills,Legacy Migration Strategy?,Strangler Pattern. Don't rewrite. Build new features in Hooks. Wrap old Class components if needed. Refactor old code only when touching it for bugs.
+537,Soft Skills,When NOT to use useEffect?,Don't use it for: 1. Transforming data (do it in render). 2. Handling user events (do it in event handlers). 3. Setting derived state (calculate it).
+538,Soft Skills,Strategy to reduce Bundle Size?,1. Analyze (webpack-bundle-analyzer). 2. Code Split routes (React.lazy). 3. Tree Shake libraries (import lodash/debounce not lodash). 4. Compress images.
+539,Soft Skills,Context vs Redux for HFT (Trading) App?,"Redux. Context triggers re-renders for all consumers on updates. A trading app needs granular, high-frequency updates (Selectors) which Redux provides efficiently."
+540,Soft Skills,Enforcing A11y standards?,1. eslint-plugin-jsx-a11y. 2. Axe-core in CI/CD (integration tests). 3. Mandate keyboard navigation testing in PR reviews.
+541,Advanced,"What is ""Tearing"" in UI?","When the UI shows two different states of the same data simultaneously (e.g., top of list shows State A, bottom shows State B). React 18 Concurrent Mode fixes this."
+542,Advanced,useCallback vs useMemo return values?,"useCallback(fn, deps) returns the function itself. useMemo(fn, deps) returns the result of calling the function."
+543,Advanced,"What is the ""Waterfall"" problem in Data Fetching?","Component A fetches -> waits -> renders B -> B fetches. Fix: Fetch parallel (Promise.all), hoist data requirements, or use Relay/Suspense."
+544,Advanced,Difference: rem vs em in Components?,rem is relative to Root (html). em is relative to the parent font size. rem is safer for consistent sizing in reusable components.
+545,Advanced,"How to debug a ""White Screen of Death"" in Prod?",1. Check console for syntax errors. 2. Verify base path in index.html. 3. Check if an Error Boundary caught a crash but had no fallback UI.
+546,Performance,What is content-visibility: auto?,A CSS property that improves rendering performance by skipping layout/paint for off-screen content (like a native browser Virtualization).
+547,Internals,"What is a ""Fiber"" node really?","A JavaScript object that contains information about a component input, its output, and its place in the tree. It is the unit of work in React."
+548,React 19,What is the use hook's unique rule?,"It is the only hook that can be called inside loops (if, for) or conditionally. It unwraps Promises or Context."
+549,Patterns,"What is ""Render Props"" mainly used for now?","Mostly replaced by Hooks, but still useful for libraries that need to expose rendering control to the user (e.g., Downshift, Virtual Lists)."
+550,Final,How to handle a 100MB JSON response?,Do not load it. Pagination (Server side). If forced: Stream the JSON parsing (using oboe.js or standard Streams API) and populate the store incrementally.
