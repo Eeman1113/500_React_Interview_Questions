@@ -166,10 +166,11 @@ else:
 # PAGE: BROWSE & SEARCH
 # -----------------------------------------------------------------------------
 if mode == "📚 Browse & Search":
-    st.header("Browse Questions")
+    st.header("Explore the Questions")
+    st.caption(f"Displaying {len(filtered_df)} of {len(df)} total questions.")
     
     # Search Bar
-    search_query = st.text_input("🔍 Search for keywords (e.g., 'Redux', 'Fiber', '18')", "")
+    search_query = st.text_input("", placeholder="Search within the selected category...", label_visibility="collapsed")
     
     if search_query:
         display_df = filtered_df[
@@ -178,28 +179,39 @@ if mode == "📚 Browse & Search":
         ]
     else:
         display_df = filtered_df
-        
-    st.caption(f"Showing {len(display_df)} questions")
+    
+    st.write("---")
 
-    # Display as expandable list
+    # Display list in "Clean Read" mode
     for index, row in display_df.iterrows():
-        # Bookmark Icon
-        is_bookmarked = row['ID'] in st.session_state.bookmarks
-        icon = "🔖" if is_bookmarked else "⬜"
-        
-        with st.expander(f"{icon} {row['ID']}. {row['Question']}  [{row['Category']}]"):
-            st.markdown(f"**Answer:**")
-            st.markdown(row['Answer'])
+        # Using a container for better grouping
+        with st.container():
+            # Question Header
+            st.subheader(f"{row['ID']}. {row['Question']}")
             
-            # Action Button
-            col1, col2 = st.columns([1, 5])
-            with col1:
-                if st.button(f"{'Unmark' if is_bookmarked else 'Bookmark'}", key=f"btn_{row['ID']}"):
+            # Answer Body
+            st.markdown(f"**Answer:** {row['Answer']}")
+            
+            # Metadata & Actions row
+            col_info, col_btn = st.columns([6, 1])
+            
+            with col_info:
+                st.caption(f"Category: {row['Category']}")
+                
+            with col_btn:
+                is_bookmarked = row['ID'] in st.session_state.bookmarks
+                # Minimal button with icon
+                icon = "★" if is_bookmarked else "☆"
+                help_text = "Remove from bookmarks" if is_bookmarked else "Add to bookmarks"
+                
+                if st.button(icon, key=f"browse_bm_{row['ID']}", help=help_text):
                     if is_bookmarked:
                         st.session_state.bookmarks.remove(row['ID'])
                     else:
                         st.session_state.bookmarks.add(row['ID'])
                     st.rerun()
+            
+            st.divider()
 
 # -----------------------------------------------------------------------------
 # PAGE: FLASHCARDS
@@ -241,7 +253,6 @@ elif mode == "🃏 Flashcards":
         st.write("") # Spacer
 
         # THE FLASHCARD UI
-        # We use a container with a background color via the CSS defined at top
         
         # Bookmark status for current card
         is_bm = q_id in st.session_state.bookmarks
@@ -298,11 +309,13 @@ elif mode == "🔖 My Bookmarks":
         st.markdown(f"You have **{len(bookmark_df)}** questions marked for review.")
         
         for index, row in bookmark_df.iterrows():
-            with st.expander(f"{row['ID']}. {row['Question']} [{row['Category']}]"):
-                st.write(row['Answer'])
-                if st.button("Remove Bookmark", key=f"rm_{row['ID']}"):
-                    st.session_state.bookmarks.remove(row['ID'])
-                    st.rerun()
+            st.subheader(f"{row['ID']}. {row['Question']}")
+            st.markdown(f"**Answer:** {row['Answer']}")
+            
+            if st.button("Remove Bookmark", key=f"rm_{row['ID']}"):
+                st.session_state.bookmarks.remove(row['ID'])
+                st.rerun()
+            st.divider()
 
 # -----------------------------------------------------------------------------
 # FOOTER
